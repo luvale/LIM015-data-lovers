@@ -1,0 +1,15 @@
+.cardClass {
+    background-color: #99C1DE;
+    color:white;
+    text-align: center;
+    width: 350px;
+    height: 380px;
+    padding: 7px;
+    margin: 7px;
+}
+
+.showAllFilms {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around;        
+}
