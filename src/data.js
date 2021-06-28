@@ -1,18 +1,16 @@
-// estas funciones son de ejemplo
-import data from './data/ghibli/ghibli.js';
-
-export const showData = () => {
-  data.films.forEach(function(element) {
-   console.log(element);
-})
-  // console.log(a);
+// Trae Films
+export const getFilm = (data) => {
+  const dataGhibli = data.films.map((arr) => arr);
+  return dataGhibli;
 }
 
-/* export const example = () => {
-  return 'example';
-};
+// Trae 1 Film / movie // Podemos agregar el buscador
+export const searchMovie = (films, nameMovie) => {
+  const result = films.filter(film => film.title === nameMovie);
+  return result;
+}
 
-export const anotherExample = () => {
-  return 'OMG';
-};
- */
+export const showPeople = (films) => {
+  const dataGhibli = films.map((arr) => arr.people);
+  return dataGhibli;  
+}
