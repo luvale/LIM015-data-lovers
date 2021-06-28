@@ -1,4 +1,5 @@
 // Trae Films
+import data from './data/ghibli/ghibli.js';
 export const getFilm = (data) => {
   const dataGhibli = data.films.map((arr) => arr);
   return dataGhibli;

@@ -18,8 +18,3 @@ function showFilmInScreen (arrayData){
     });
 }
 showFilmInScreen(filmsGhibli);
-
- 
-
-
-
