@@ -1,6 +1,5 @@
 // estas funciones son de ejemplo
 import data from './data/ghibli/ghibli.js';
-
 /*
 export const showProducers =
 data.films.map( function (all) {
