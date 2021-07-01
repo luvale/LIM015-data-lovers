@@ -1,8 +1,9 @@
-import {getFilm, searchYears} from './data.js';
+import {getFilm, searchYears, allProducers} from './data.js';
 import data from './data/ghibli/ghibli.js';
 const filmsGhibli = getFilm(data);//obtiene la data Original y la copia seria filmGhibli
 // trae solo films.
 // Muestra todas las tarjetas
+
 const showAllFilms = document.getElementById("showAllFilms")
 
 function showFilmsInScreen (arrayData){
@@ -15,6 +16,7 @@ function showFilmsInScreen (arrayData){
     });
 }
 showFilmsInScreen(filmsGhibli);
+
 /* Filter(SORT) BY years --> Diana (traer ID - incluir funcion)*/
 const dropdown = (arrayData) =>{
      arrayData.forEach((element) => {
@@ -28,22 +30,22 @@ const dropdown = (arrayData) =>{
 dropdown(filmsGhibli);
 /* Filter(SORT) BY years --> Diana */
 
-//Sort By Producers Valeria
-const array = (data) => data.films.map(a => a.producer);
-const arrayProducers = array(data);
- console.log (arrayProducers);
+/* Sort by producers --> Valeria */
+const arrayProducers = allProducers(data)
 
-const unique = new Set(arrayProducers); // le borré el Array.from() y aún funciona.
-console.log (unique);
+// Filtro el array de producers para que los nombres no se repitan
+const producers = arrayProducers.filter((value, index) =>{
+    return arrayProducers.indexOf(value) === index;
+});
 
+//Uso la nueva lista de producers en un <select>
 function sortByProducer() {
-    unique.forEach( element => {
+    producers.forEach( element => {
         const options = document.createElement("option");
         options.innerHTML= `${element}`;
         const select = document.getElementById("producers");
         select.append(options);
-       console.log(element);
     })
 }
 sortByProducer(filmsGhibli);
-//Sort By Producers Valeria
+/* Sort by producers --> Valeria */
