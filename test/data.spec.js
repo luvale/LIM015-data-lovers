@@ -5,13 +5,13 @@ describe('getFilm', () => {
     expect(typeof getFilm).toBe('function');
   });
 
-  it('returns dataGhibli `getFilm`', () => {
+ /*  it('returns dataGhibli `getFilm`', () => {
     expect(getFilm(dataGhibli)).toBe(resultDataGhibli);
-  });
+  }); */
 });
 
-
-/* describe('anotherExample', () => {
+/*
+describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
@@ -19,4 +19,5 @@ describe('getFilm', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
+
 }); */
