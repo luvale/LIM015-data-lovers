@@ -1,10 +1,10 @@
-import { getFilm } from './data.js';
+import { getFilm , allProducers } from './data.js';
 
 import data from './data/ghibli/ghibli.js';
 const filmsGhibli = getFilm(data);//obtiene la data Original y la copia seria filmGhibli
 // trae solo films.
 
-// Muestra todas las tarjetas
+// Muestra todas las películas
 const showAllFilms = document.getElementById("showAllFilms")
 
 function showFilmsInScreen (arrayData){
@@ -18,22 +18,20 @@ function showFilmsInScreen (arrayData){
 }
 showFilmsInScreen(filmsGhibli);
 
-//Sort By Producers
+const arrayProducers = allProducers(data)
 
-const array = (data) => data.films.map(a => a.producer);
-const arrayProducers = array(data);
- console.log (arrayProducers);
+// Filtro el array de producers para que los nombres no se repitan
+const producers = arrayProducers.filter((value, index) =>{
+    return arrayProducers.indexOf(value) === index;
+});
 
-const unique = new Set(arrayProducers); // le borré el Array.from() y aún funciona.
-console.log (unique);
-
+//Uso la nueva lista de producers en un <select>
 function sortByProducer() {
-    unique.forEach( element => {
+    producers.forEach( element => {
         const options = document.createElement("option");
         options.innerHTML= `${element}`;
         const select = document.getElementById("producers");
         select.append(options);
-       console.log(element);
     })
 }
 sortByProducer(filmsGhibli);
