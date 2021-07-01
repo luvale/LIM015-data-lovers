@@ -1,17 +1,17 @@
-import { example, anotherExample } from '../src/data.js';
+import {getFilm} from '../src/data.js';
 
 
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+describe('getFilm', () => {
+  it('is a function`getFilm`', () => {
+    expect(typeof getFilm).toBe('function');
   });
 
-  it('returns `example`', () => {
+  /*it('returns `example`', () => {
     expect(example()).toBe('example');
-  });
+  });*/
 });
 
-
+/*
 describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
@@ -21,3 +21,4 @@ describe('anotherExample', () => {
     expect(anotherExample()).toBe('OMG');
   });
 });
+*/
