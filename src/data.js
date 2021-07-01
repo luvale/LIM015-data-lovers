@@ -1,5 +1,4 @@
 // Trae Films
-import data from './data/ghibli/ghibli.js';
 export const getFilm = (data) => {
   const dataGhibli = data.films.map((arr) => arr);
   return dataGhibli;
@@ -11,7 +10,14 @@ export const searchMovie = (films, nameMovie) => {
   return result;
 }
 
-export const showPeople = (films) => {
+
+export const searchYears = (arrayData, release_date) => {
+  const result = arrayData.filter(film => film.release_date === release_date);
+  return result;
+}
+
+
+/* export const showPeople = (films) => {
   const dataGhibli = films.map((arr) => arr.people);
   return dataGhibli;  
-}
+} */
