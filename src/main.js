@@ -1,10 +1,9 @@
-import { getFilm , allProducers } from './data.js';
-
+import {getFilm, searchYears, allProducers} from './data.js';
 import data from './data/ghibli/ghibli.js';
 const filmsGhibli = getFilm(data);//obtiene la data Original y la copia seria filmGhibli
 // trae solo films.
+// Muestra todas las tarjetas
 
-// Muestra todas las películas
 const showAllFilms = document.getElementById("showAllFilms")
 
 function showFilmsInScreen (arrayData){
@@ -18,6 +17,20 @@ function showFilmsInScreen (arrayData){
 }
 showFilmsInScreen(filmsGhibli);
 
+/* Filter(SORT) BY years --> Diana (traer ID - incluir funcion)*/
+const dropdown = (arrayData) =>{
+     arrayData.forEach((element) => {
+         const optionYears = document.createElement("option");
+         optionYears.innerHTML= `${element.release_date}`;
+         console.log(optionYears);
+         selectDropdown.appendChild(optionYears);
+     });
+      return showAllFilms;
+};
+dropdown(filmsGhibli);
+/* Filter(SORT) BY years --> Diana */
+
+/* Sort by producers --> Valeria */
 const arrayProducers = allProducers(data)
 
 // Filtro el array de producers para que los nombres no se repitan
@@ -35,5 +48,4 @@ function sortByProducer() {
     })
 }
 sortByProducer(filmsGhibli);
-
-
+/* Sort by producers --> Valeria */

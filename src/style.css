@@ -5,28 +5,24 @@
     width: 350px;
     height: 380px;
     padding: 7px;
-    margin: 20px;
+    margin: 7px;
     font-size: 20px;
     font-family: 'Sawarabi Gothic', sans-serif;
 }
-
 .showAllFilms {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;        
 }
-
-header {
+header{
     background-color: #C5DEDD;
     padding: 10px;
     display: flex;
 }
-
 body{
     margin: 0px;
     margin-bottom: 80px;
 }
-
 #buscador {
     background-color: #99C1DE;
     color: white;
@@ -44,8 +40,7 @@ body{
 ::placeholder {
     color: white;
 }
-
-#producers {
+#producers, #selectDropdown {
     border-color: #99C1DE;
     background-color: #99C1DE;
     color: white;
@@ -57,10 +52,8 @@ body{
     position:absolute;
     left: 48%;
     top: 15%;
-    outline:none;
-    
+    outline:none;  
 }
-
 footer{
     background: #EDDCD2;
     padding: 20px;
@@ -75,13 +68,16 @@ footer{
     font-family: 'Sawarabi Gothic', sans-serif;
 }
 .icons-social{
+  padding-right: 40px;
+}
+.icons-social{
     padding-right: 40px;
 }
 .icons-social a i{
     font-size: 29px;
     justify-content: space-between;
     color: #000000
-  }
+}
 .s-icons{
     width: 35px;
     height: 35px;
