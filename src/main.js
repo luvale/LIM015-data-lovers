@@ -22,7 +22,6 @@ const dropdown = (arrayData) =>{
      arrayData.forEach((element) => {
          const optionYears = document.createElement("option");
          optionYears.innerHTML= `${element.release_date}`;
-         
          selectDropdown.appendChild(optionYears);
      });
       return showAllFilms;
