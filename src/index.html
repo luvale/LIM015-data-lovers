@@ -13,11 +13,14 @@
       <input id="buscador" type="text" placeholder="Buscar">
       <div>
         <select id="producers"></select>
-        <select name="Years" id="selectDropdown"></select>
+
+        <select id="filter-years"> 
+          <option value="all">All</option>           
+        </select>
       </div>
     </header>
     <main>
-        <article class="showAllFilms" id="showAllFilms"></article>
+      <div class="cards" id="showAllFilms"></div>
     </main>
     <footer>
       <div class="containerFooter">
@@ -28,7 +31,6 @@
         </div>
       </div>
     </footer>
-
     <script src="https://kit.fontawesome.com/99e095b5b2.js" crossorigin="anonymous"></script>
     <script src="main.js" type="module"></script>
   </body>
