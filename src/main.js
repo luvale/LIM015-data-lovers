@@ -9,11 +9,7 @@ function showFilmsInScreen (arrayData){
     arrayData.forEach(element => {
         const divFilm = document.createElement("section");
         divFilm.innerHTML=`<p>${element.title}</p>
-<<<<<<< HEAD
-        <img src="${element.poster}" alt="">`
-=======
         <img width="60%" src="${element.poster}" alt="">`
->>>>>>> fe5a0f4154d2bfd48e8891236244e2d5d00dbacd
         showAllFilms.append(divFilm);
         divFilm.classList.add("cardClass");
     });
