@@ -70,6 +70,9 @@ body{
     font-family: 'Sawarabi Gothic', sans-serif;
     box-shadow: 5px 5px 15px #556c7c;
 }
+.filter{
+    display: none; 
+} 
 .showAllFilms {
     display: flex;
     flex-wrap: wrap; 
@@ -132,7 +135,7 @@ footer{
         margin: 15px;
         font-size: 18px;
     }
-
+    
     #copyright{
         padding-left:30px;
     }

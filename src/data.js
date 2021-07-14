@@ -8,7 +8,7 @@ export const getFilm = (data) => {
 export const searchYears = (data, fecha) => {
   const result = data.filter(arr => arr.release_date == fecha);
   return result;
-}
+} 
 
 // Hago un array de todos los productores
  export const mapDirectors = (data) => {
