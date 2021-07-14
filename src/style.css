@@ -34,7 +34,7 @@ header{
     width: 210px;
 }
 #filter-years{
-    width: 85px;
+    width: 110px;
 }
 #buscador {
     background-color: #99C1DE;
@@ -70,7 +70,7 @@ body{
     font-family: 'Sawarabi Gothic', sans-serif;
     box-shadow: 5px 5px 15px #556c7c;
 }
-.showAllFilms {
+#showAllFilms {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;        
@@ -124,7 +124,7 @@ footer{
         width: 180px;
     }
     #filter-years{
-        width: 75px;
+        width: 95px;
     }
     .cardClass {
         width: 315px;

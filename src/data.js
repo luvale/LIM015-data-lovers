@@ -27,3 +27,6 @@ export const filterDirectors = (data, value) => {
   const filterDirectors = data.films.filter(x => x.director === value)
   return filterDirectors;  
 }
+ 
+ 
+ 
