@@ -10,7 +10,7 @@ function showFilmsInScreen (arrayData){
     arrayData.forEach(element => {
         const divFilm = document.createElement("section");
         divFilm.innerHTML=`<p>${element.title}</p>
-        <img src="${element.poster}" alt="">`;
+        <img class="posters" src="${element.poster}" alt="">`;
         showAllFilms.append(divFilm);
         divFilm.classList.add("cardClass"); //Pusimos class para poder editar todo junto el CSS de las cards.
         divFilm.setAttribute("id" , element.id);  // los id ya vienen en el 'ghibli.js' 
@@ -18,24 +18,34 @@ function showFilmsInScreen (arrayData){
         identificador.addEventListener("click", newScreen);
         
         function newScreen(){                // Muestra en pantalla la información de cada película. 
-          showAllFilms.textContent = '';
-          const article = document.createElement("article");
-          const aside = document.createElement("aside");
-          const topSection = document.createElement("section");
-          const peopleSection = document.createElement("section");
-          const locationSection = document.createElement("section");
-          const vehicleSection = document.createElement("section");
-          article.innerHTML= `<h1>${element.title}</h1>`
-          aside.innerHTML= `<img src=${element.poster}>
-          <h3>Director: ${element.director}</h3>
-          <h3>Producer: ${element.producer}</h3>`
-          topSection.innerHTML= `<p>Description: ${element.description}</p>
-          <h3>Release Date: ${element.release_date}</h3>` 
+          showAllFilms.textContent = ''; 
+          const title = document.createElement("section");           // Título de la película.
+          title.classList.add("title");         
+          const article = document.createElement("article");         // Artículo = contenedor de toda la página.
+          article.classList.add("moviesInfo");  
+          const aside = document.createElement("aside");             // Aside.
+          const mainSection = document.createElement("section");     // Contenedor de todo al lado derecho.
+          mainSection.classList.add("mainSection");         
+         // asideSection.classList.add("asideInfo");
+          const peopleSection = document.createElement("section");  // Section con los personajes.
+          const peopleLoop = document.createElement("section");
+          peopleSection.classList.add("peopleSection"); 
+          const locationSection = document.createElement("section"); // Section con las locaciones. 
+          locationSection.classList.add("locationSection"); 
+          const vehicleSection = document.createElement("section");  // Section con los vehículos.
+         // vehicleSection.classList.add("infoSections"); 
+          title.innerHTML= `<h1>${element.title}</h1>` 
+          aside.innerHTML= `<img class="posters" src=${element.poster}>
+          <h3 class="director">Director: ${element.director}</h3>
+          <h3 class="producer">Producer: ${element.producer}</h3>`
+          mainSection.innerHTML= `<p class="description">Description: ${element.description}</p>
+          <h3 class="releaseDate">Release Date: ${element.release_date}</h3>` 
+          peopleSection.innerHTML = `<h3 class="subtitle">Characters:</h3>`;
           
           const characters = element.people;         // Recorre cada personaje para mostrarlo en pantalla. 
           for (let i = 0; i <= characters.length-1; i++){  
-            peopleSection.innerHTML += `<p>Name: ${characters[i].name}</p> 
-            <img src = ${characters[i].img}>` 
+            peopleLoop.innerHTML += `<div class="peopleCards"> <p>${characters[i].name}</p> 
+            <img class="peopleImg" src = ${characters[i].img}> </div>` 
           }
           const locations = element.locations;        // Recorre cada locación para mostrarla en pantalla.
           for (let i = 0; i <= locations.length-1; i++){ 
@@ -47,9 +57,10 @@ function showFilmsInScreen (arrayData){
             vehicleSection.innerHTML= `<p>Vehicle: ${vehicles[i].name}</p> 
             <img src = ${vehicles[i].img}>`
           }
-
-          showAllFilms.append(article);
-          article.append(aside, topSection, peopleSection, locationSection, vehicleSection);
+          showAllFilms.append(title, article);
+          article.append( aside, mainSection);
+          peopleSection.append(peopleLoop);
+          mainSection.append(peopleSection, locationSection, vehicleSection);
         }   
          
         
