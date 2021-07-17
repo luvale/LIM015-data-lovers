@@ -20,10 +20,20 @@
           <option value="all">All</option>           
         </select>
         <input id="buscador" type="search" class='card-filter' placeholder="Buscar">
+        <div class="btn-filtro">    
+          <!--  <label for="element-type-filter"> A-Z </label> -->
+          <select id="filter-AZ">
+            <option disabled selected>Sort by</option>
+            <option value="A-Z">Name A-Z</option>
+            <option value="Z-A">Name Z-A</option>
+          </select>
+        </div>
+        
       </div>
     </header>
     <main>
       <div class="cards" id="showAllFilms"></div>
+       <!-- filter AZ y ZA -->
     </main>
     <footer>
         <div class="containerFooter">

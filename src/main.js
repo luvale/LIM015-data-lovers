@@ -1,9 +1,11 @@
 import data from './data/ghibli/ghibli.js';
-import {getFilm, searchYears , directors , filterDirectors} from './data.js';
+import {getFilm, searchYears , directors , filterDirectors,sortAZ, sortZA} from './data.js';
 const filmsGhibli = getFilm(data);//obtiene la data Original y la copia seria filmGhibli
 // trae solo films.
 const showAllFilms = document.getElementById("showAllFilms");
 const elementFilterYears = document.querySelector("#filter-years");
+
+const filterAZ = document.querySelector("#filter-AZ");
 
 
 function showFilmsInScreen (arrayData){
@@ -40,6 +42,20 @@ function showFilmsInScreen (arrayData){
   });
 }
 showFilmsInScreen(filmsGhibli);
+
+//Sort by AZ-ZA 
+filterAZ.addEventListener('change',() =>{
+  if(filterAZ.value ==='A-Z'){
+    sortAZ(filmsGhibli, filterAZ.value);
+    showAllFilms.innerHTML = '';
+    showFilmsInScreen(filmsGhibli);
+  } if(filterAZ.value === 'Z-A'){
+    sortZA(filmsGhibli, filterAZ.value);
+    showAllFilms.innerHTML = '';
+    showFilmsInScreen(filmsGhibli);
+  }
+})
+
 
 //BUSCADOR  
 const d = document;
@@ -82,6 +98,7 @@ function sortByDirectors() {
         showFilmsInScreen(selectDirector);
     }     
 }
+
 
 /* DROPDOWN-Years*/
 const withoutDuplicateYears = (arr) => {
