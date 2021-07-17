@@ -181,6 +181,9 @@ footer{
     width: 48px;
     height: 48px;
 }
+.filter{
+    display: none;
+}
 
 @media screen and (max-width: 800px){
     #logo {
