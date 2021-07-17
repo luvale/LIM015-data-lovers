@@ -148,6 +148,10 @@ aside{
 .locationSection {
     margin-top: 25px;
 }
+/* Estilo que permite hacer la busqueda */
+.filter{
+    display: none;
+}
 footer{
     background: #EDDCD2;
     bottom: 0%;

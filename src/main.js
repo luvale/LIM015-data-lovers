@@ -100,6 +100,7 @@ function sortByDirectors() {
     }     
 }
 
+
 /* DROPDOWN-Years*/
 const withoutDuplicateYears = (arr) => {
   let result = arr.filter((item,index)=>{
