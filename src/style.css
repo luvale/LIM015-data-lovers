@@ -3,7 +3,7 @@ header{
     padding: 8px;
     text-align: center;  
     width:100%; 
-}
+} 
 #logo {
     padding: 2px;
     width: 400px;
@@ -51,13 +51,12 @@ header{
 }
 ::placeholder {
     color: white;
-    
-}
-
+} 
 body{
     margin: 0px;
     margin-bottom: 50px;
-}
+    font-family: 'Sawarabi Gothic', sans-serif;
+} 
 .cardClass {
     background-color: #99C1DE;
     color:white;
@@ -70,11 +69,84 @@ body{
     font-size: 20px;
     font-family: 'Sawarabi Gothic', sans-serif;
     box-shadow: 5px 5px 15px #556c7c;
+} 
+.posters{
+    border-radius: 11px;
 }
 #showAllFilms {
     display: flex;
     flex-wrap: wrap; 
     justify-content: space-around;        
+} 
+.moviesInfo {
+    display: flex; 
+}
+.title{
+    text-align: center; 
+    font-size: 30px;
+}
+aside{ 
+    width: 20%; 
+    margin-top: 0px;
+    margin-left: 5%;
+    display: flex;
+    flex-direction: column;
+    float:left;
+} 
+.producer , .director{
+    background-color: #EDDCD2;
+    border-radius: 11px; 
+    padding:17px;
+} 
+.director{
+    margin-bottom: 5px;
+}
+.mainSection{ 
+    width: 60%; 
+    margin-top: 0px;
+    margin-left: 5%;
+    margin-right: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.description{
+    margin-top: 0px;
+    background-color: #99C1DE;
+    border-radius: 11px;
+    padding:17px; 
+    margin-bottom: 4px;
+}
+.releaseDate{
+    background-color: #EDDCD2;
+    border-radius: 11px; 
+    padding:17px;
+    width: 170px;
+}
+.subtitle{
+    font-size: 20px;
+    padding:0px;
+    margin: 0px;
+}
+.peopleImg{
+    border-radius: 11px;
+    width: 100px;
+}
+.peopleSection , .locationSection{
+    border-radius: 11px;
+    border: 8px solid #99C1DE;
+    padding: 10px;
+}
+.peopleCards{
+    display:flex;
+    justify-content: space-around;
+    background-color: #C5DEDD;
+    border-radius: 11px;
+    margin: 10px;
+    padding: 5px;
+}
+.locationSection {
+    margin-top: 25px;
 }
 /* Estilo que permite hacer la busqueda */
 .filter{
@@ -172,3 +244,5 @@ footer{
         padding-top: 10px;
     }
 }
+
+
