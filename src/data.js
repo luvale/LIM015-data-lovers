@@ -4,11 +4,26 @@ export const getFilm = (data) => {
   const dataGhibli = data.films.map((arr) => arr);
   return dataGhibli;
 }
+//sort by ZA- ZA
+export const sortAZ = (data) =>{
+  const sortLetters = data.sort((name1, name2) => {
+    return(name1.title < name2.title) ? -1  : 1 
+  });
+  return sortLetters;
+}
+export const sortZA = (data) =>{
+  const sortLetterZA = data.sort((name1, name2) => {
+    return(name1.title > name2.title) ? -1  : 1 
+  });
+  return sortLetterZA;
+}
+
+
 //Por año
 export const searchYears = (data, fecha) => {
   const result = data.filter(arr => arr.release_date == fecha);
   return result;
-}
+} 
 
 // Hago un array de todos los productores
  export const mapDirectors = (data) => {

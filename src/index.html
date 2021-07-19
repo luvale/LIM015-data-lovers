@@ -19,7 +19,16 @@
         <select id="filter-years"> 
           <option value="all">By Years</option>           
         </select>
-        <input id="buscador" type="text" placeholder="Buscar">
+        <input id="buscador" type="search" class='card-filter' placeholder="Buscar">
+        <div class="btn-filtro">    
+          <!--  <label for="element-type-filter"> A-Z </label> -->
+          <select id="filter-AZ">
+            <option disabled selected>Sort by</option>
+            <option value="A-Z">Name A-Z</option>
+            <option value="Z-A">Name Z-A</option>
+          </select>
+        </div>
+        
       </div>
     </header>
     <main>

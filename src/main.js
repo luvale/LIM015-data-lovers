@@ -1,9 +1,11 @@
 import data from './data/ghibli/ghibli.js';
-import {getFilm, searchYears , directors , filterDirectors  } from './data.js';
+import {getFilm, searchYears , directors , filterDirectors, sortAZ, sortZA  } from './data.js';
 const filmsGhibli = getFilm(data);//obtiene la data Original y la copia seria filmGhibli
 // trae solo films.
 const showAllFilms = document.getElementById("showAllFilms");
 const elementFilterYears = document.querySelector("#filter-years");
+
+const filterAZ = document.querySelector("#filter-AZ");
 
 function showFilmsInScreen (arrayData){ 
     arrayData.forEach(element => {
@@ -52,10 +54,10 @@ function showFilmsInScreen (arrayData){
             peopleLoop.innerHTML += `<div class="peopleCards"> <p>${characters[i].name}</p> 
             <img class="peopleImg" src = ${characters[i].img}> </div>` 
           }
+
           const locations = element.locations;        // Recorre cada locación para mostrarla en pantalla.
-          console.log(locations);
-          if (locations == []) {
-            return console.log("nohaynada");
+          if (locations.length === 0) {
+             locationLoop.innerHTML = `<p>No locations found in this movie.</p>`
           } else {
               for (let i = 0; i < locations.length; i++){ 
                 locationLoop.innerHTML += `<div class="locationCards"> <p>${locations[i].name}</p> 
@@ -64,8 +66,8 @@ function showFilmsInScreen (arrayData){
             }
           
           const vehicles = element.vehicles;          //Recorre cada vehículo para mostrarlo en pantalla.
-           if (vehicles == []) {
-            return console.log("nohaynada");
+           if (vehicles.length === 0) {
+            vehicleLoop.innerHTML = `<p>No vehicles found in this movie.</p>`
           } else {
               for (let i = 0; i < vehicles.length; i++){
                 vehicleLoop.innerHTML= `<div class="vehicleCards"> <p>${vehicles[i].name}</p> 
@@ -114,6 +116,7 @@ function sortByDirectors() {
     }     
 }
 
+
 /* DROPDOWN-Years*/
 const withoutDuplicateYears = (arr) => {
   let result = arr.filter((item,index)=>{
@@ -149,5 +152,33 @@ elementFilterYears.addEventListener('change',() =>{
   }
 })
 
-
+//BUSCADOR  
+const d = document;
+function searchFilms(input, selector){
+  d.addEventListener('keyup',(e) =>{
+    if(e.target.matches(input)){
+      if(e.key === "Escape"){
+        e.target.value="";
+      }
+        d.querySelectorAll(selector).forEach((element) =>
+        element.textContent.toLowerCase().includes(e.target.value)
+        ?element.classList.remove("filter")
+        :element.classList.add("filter")
+        );
+    }
+  });
+}
+searchFilms(".card-filter", ".cardClass");
+//Sort by AZ-ZA 
+filterAZ.addEventListener('change',() =>{
+  if(filterAZ.value ==='A-Z'){
+    sortAZ(filmsGhibli, filterAZ.value);
+    showAllFilms.innerHTML = '';
+    showFilmsInScreen(filmsGhibli);
+  } if(filterAZ.value === 'Z-A'){
+    sortZA(filmsGhibli, filterAZ.value);
+    showAllFilms.innerHTML = '';
+    showFilmsInScreen(filmsGhibli);
+  }
+})
 
