@@ -4,7 +4,6 @@ const filmsGhibli = getFilm(data);//obtiene la data Original y la copia seria fi
 // trae solo films.
 const showAllFilms = document.getElementById("showAllFilms");
 const elementFilterYears = document.querySelector("#filter-years");
- 
 
 function showFilmsInScreen (arrayData){ 
     arrayData.forEach(element => {
@@ -25,46 +24,61 @@ function showFilmsInScreen (arrayData){
           article.classList.add("moviesInfo");  
           const aside = document.createElement("aside");             // Aside.
           const mainSection = document.createElement("section");     // Contenedor de todo al lado derecho.
-          mainSection.classList.add("mainSection");         
-         // asideSection.classList.add("asideInfo");
+          mainSection.classList.add("mainSection");
+          
           const peopleSection = document.createElement("section");  // Section con los personajes.
           const peopleLoop = document.createElement("section");
           peopleSection.classList.add("peopleSection"); 
-          const locationSection = document.createElement("section"); // Section con las locaciones. 
-          locationSection.classList.add("locationSection"); 
+          const locationSection = document.createElement("section"); // Section con las locaciones.           
+          const locationLoop =  document.createElement("section");
+          locationSection.classList.add("locationSection");
           const vehicleSection = document.createElement("section");  // Section con los vehículos.
-         // vehicleSection.classList.add("infoSections"); 
+          const vehicleLoop = document.createElement("section");
+          vehicleSection.classList.add("vehicleSection");
+          
           title.innerHTML= `<h1>${element.title}</h1>` 
           aside.innerHTML= `<img class="posters" src=${element.poster}>
           <h3 class="director">Director: ${element.director}</h3>
           <h3 class="producer">Producer: ${element.producer}</h3>`
           mainSection.innerHTML= `<p class="description">Description: ${element.description}</p>
           <h3 class="releaseDate">Release Date: ${element.release_date}</h3>` 
+
           peopleSection.innerHTML = `<h3 class="subtitle">Characters:</h3>`;
+          locationSection.innerHTML = `<h3 class="subtitle">Locations:</h3>`;
+          vehicleSection.innerHTML = `<h3 class="subtitle">Vehicles:</h3>`;
           
-          const characters = element.people;         // Recorre cada personaje para mostrarlo en pantalla. 
-          for (let i = 0; i <= characters.length-1; i++){  
+          const characters = element.people;         // Recorre cada personaje para mostrarlo en pantalla.
+          for (let i = 0; i < characters.length; i++){  
             peopleLoop.innerHTML += `<div class="peopleCards"> <p>${characters[i].name}</p> 
             <img class="peopleImg" src = ${characters[i].img}> </div>` 
           }
           const locations = element.locations;        // Recorre cada locación para mostrarla en pantalla.
-          for (let i = 0; i <= locations.length-1; i++){ 
-            locationSection.innerHTML += `<p>Location: ${locations[i].name}</p> 
-            <img src = ${locations[i].img}>`
-          } 
+          console.log(locations);
+          if (locations == []) {
+            return console.log("nohaynada");
+          } else {
+              for (let i = 0; i < locations.length; i++){ 
+                locationLoop.innerHTML += `<div class="locationCards"> <p>${locations[i].name}</p> 
+                <img src = ${locations[i].img}> </div>`
+              } 
+            }
+          
           const vehicles = element.vehicles;          //Recorre cada vehículo para mostrarlo en pantalla.
-          for (let i = 0; i <= vehicles.length-1; i++){
-            vehicleSection.innerHTML= `<p>Vehicle: ${vehicles[i].name}</p> 
-            <img src = ${vehicles[i].img}>`
-          }
+           if (vehicles == []) {
+            return console.log("nohaynada");
+          } else {
+              for (let i = 0; i < vehicles.length; i++){
+                vehicleLoop.innerHTML= `<div class="vehicleCards"> <p>${vehicles[i].name}</p> 
+                <img src = ${vehicles[i].img}> </div>`
+              }
+            }
           showAllFilms.append(title, article);
           article.append( aside, mainSection);
-          peopleSection.append(peopleLoop);
           mainSection.append(peopleSection, locationSection, vehicleSection);
+          peopleSection.append(peopleLoop);
+          locationSection.append(locationLoop);
+          vehicleSection.append(vehicleLoop);
         }   
-         
-        
- 
     });
 }
 showFilmsInScreen(filmsGhibli);

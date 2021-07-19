@@ -132,21 +132,25 @@ aside{
     border-radius: 11px;
     width: 100px;
 }
-.peopleSection , .locationSection{
+.peopleSection , .locationSection, .vehicleSection{
     border-radius: 11px;
     border: 8px solid #99C1DE;
     padding: 10px;
 }
 .peopleCards{
     display:flex;
+    width: 50%;
     justify-content: space-around;
     background-color: #C5DEDD;
     border-radius: 11px;
     margin: 10px;
     padding: 5px;
 }
-.locationSection {
+.locationSection , .vehicleSection{
     margin-top: 25px;
+}
+.vehicleSection{
+    margin-bottom: 35px;
 }
 footer{
     background: #EDDCD2;
