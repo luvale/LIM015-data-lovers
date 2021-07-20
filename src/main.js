@@ -85,15 +85,8 @@ function showFilmsInScreen (arrayData){
 }
 showFilmsInScreen(filmsGhibli);
 
-
-/*
-showAllFilms.textContent = '';
-const section = document.createElement("section")
-section.innerHTML = `<img src="${element.poster}" alt="">`
-*/
-
 /* Sort by Directors */
-const select = document.getElementById("directors");
+const selectOfDirectors = document.getElementById("directors");
 
 //Uso la nueva lista de directores en un <select>
 function directorsList() {
@@ -101,17 +94,17 @@ function directorsList() {
         const options = document.createElement("option");
         options.value = element;
         options.textContent= `${element}`;
-        select.append(options);
+        selectOfDirectors.append(options);
     })
 }
 directorsList(filmsGhibli);
 
-select.addEventListener("change", sortByDirectors);
+selectOfDirectors.addEventListener("change", sortByDirectors);
 
 function sortByDirectors() {
-    if (select.value !== "Sort By Directors"){
+    if (selectOfDirectors.value !== "Sort By Directors"){
         showAllFilms.textContent= "";
-        const selectDirector = filterDirectors(data, select.value);
+        const selectDirector = filterDirectors(data, selectOfDirectors.value);
         showFilmsInScreen(selectDirector);
     }     
 }
@@ -142,10 +135,7 @@ nameYears.forEach(name => {
 });
 
 elementFilterYears.addEventListener('change',() =>{
-  if(elementFilterYears.value === 'all'){
-    showAllFilms.innerHTML = '';
-    showFilmsInScreen(filmsGhibli);
-  } else{
+  if(elementFilterYears.value !== 'all'){
     const catchFilter = searchYears(filmsGhibli, elementFilterYears.value);
     showAllFilms.innerHTML='';
     showFilmsInScreen(catchFilter);
@@ -181,4 +171,28 @@ filterAZ.addEventListener('change',() =>{
     showFilmsInScreen(filmsGhibli);
   }
 })
+const logo = document.getElementById('logo');
+logo.addEventListener("click" , home);
 
+const homeBtn = document.querySelector("#homeBtn");
+homeBtn.addEventListener("click" , home);
+function home(){
+  showAllFilms.textContent = '';
+  showFilmsInScreen(filmsGhibli);
+  selectOfDirectors
+}
+
+const menuBtn = document.querySelector("#menuBtn");
+menuBtn.addEventListener("click" , mostrarMenu);
+function mostrarMenu(){
+  document.getElementById("sortBtns").style.display = 'flex';
+  document.getElementById("buscador").style.display = 'none';
+}
+
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click" , displaySearch);
+
+function displaySearch(){
+  document.getElementById("buscador").style.display = 'flex';
+  document.getElementById("sortBtns").style.display = 'none';
+}

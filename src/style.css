@@ -8,17 +8,20 @@ header{
     padding: 2px;
     width: 400px;
 }
-#menu {
-    display:flex;
+#navBtns{
+    display: none;
+}
+#sortBtns {
+    display: flex;
     text-align: center;
     flex-wrap: wrap; 
     justify-content:space-evenly;
 }
-#btnMenu{
+#menuBtn , #homeBtn{
     font-size: 50px;
     color: #7999af;
 }
-#directors, #filter-years {
+#directors, #filter-years , #filter-AZ {
     border-color: #99C1DE;
     background-color: #99C1DE;
     color: white;
@@ -30,13 +33,17 @@ header{
     margin: 4px;
     box-shadow: inset -2px -2px 15px #7999af;
 }
+#filter-AZ{
+    width: 140px;
+}
 #directors {
     width: 210px;
 }
-#filter-years{
+#filter-years {
     width: 110px;
 }
 #buscador {
+    display: flex;
     background-color: #99C1DE;
     color: white;
     border-radius: 11px;
@@ -192,23 +199,41 @@ footer{
 @media screen and (max-width: 800px){
     #logo {
         width: 300px;
+    }
+    #menuBtn , #homeBtn , #searchBtn{
+        font-size: 50px;
+        color: #7999af;
+    }
+    #navBtns{
+        display:flex;
+        justify-content: space-around;
+        padding: 10px;
+    }
+    #sortBtns {
+        display: none;
+        text-align: center;
+        flex-direction: column;
     }  
     #buscador {
+        display: none;
         width: 390px;
         height: 36px;
         font-size: 18px;
         margin: 4px;
     }  
-    #directors, #filter-years {
+    #directors, #filter-years , #filter-AZ {
         height: 36px;
         font-size: 17px;
         margin: 4px;
     }
+    #filter-AZ{
+        width: 125px;
+    }
     #directors {
         width: 180px;
     }
-    #filter-years{
-        width: 95px;
+    #filter-years {
+        width: 100px;
     }
     .cardClass {
         width: 315px;
