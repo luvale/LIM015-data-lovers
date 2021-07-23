@@ -7,6 +7,7 @@ header{
 #logo {
     padding: 2px;
     width: 400px;
+    cursor:pointer;
 }
 #navBtns{
     display: none;
@@ -20,6 +21,7 @@ header{
 #menuBtn , #homeBtn{
     font-size: 50px;
     color: #7999af;
+    cursor:pointer;
 }
 #directors, #filter-years , #filter-AZ {
     border-color: #99C1DE;
@@ -32,6 +34,7 @@ header{
     outline:none;  
     margin: 4px;
     box-shadow: inset -2px -2px 15px #7999af;
+    cursor:pointer;
 }
 #filter-AZ{
     width: 140px;
@@ -65,6 +68,7 @@ body{
     font-family: 'Sawarabi Gothic', sans-serif;
 } 
 .cardClass {
+    cursor:pointer;
     background-color: #99C1DE;
     color:white;
     border-radius: 11px;
@@ -77,6 +81,8 @@ body{
     font-family: 'Sawarabi Gothic', sans-serif;
     box-shadow: 5px 5px 15px #556c7c;
 } 
+.cardClass:hover {
+    box-shadow: 10px 10px 20px #556c7c;}
 .posters{
     border-radius: 11px;
 }
@@ -152,6 +158,7 @@ aside{
     border-radius: 11px;
     margin: 10px;
     padding: 5px;
+    cursor: pointer;
 }
 .locationSection , .vehicleSection{
     margin-top: 25px;
@@ -162,12 +169,43 @@ aside{
 /* Estilo que permite hacer la busqueda */
 .filter{
     display: none;
+}
+#modalContainer{
+    visibility: hidden; 
+    display: flex;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    background-color: rgba(0,0,0,0.3);
+    align-items: center;
+    justify-content: center;
+}
+#modal{
+    display: flex;
+    width: 60%;
+    height: 70%;
+    background-color: blanchedalmond;
+    border-radius: 15px;
+    text-align: center;
+    flex-direction: column;
 } 
+#close{
+    color:white;
+    background-color: teal;
+    border-radius: 50%;
+    width: 30px;
+    position: absolute;
+    right: 21%;
+    top: 13%;
+    cursor: pointer;
+}
 footer{
     background: #EDDCD2;
     bottom: 0%;
     width: 100%;
     position: fixed;
+    text-align: center;
 }
 #copyright{
     font-family: 'Sawarabi Gothic', sans-serif;
@@ -211,8 +249,7 @@ footer{
     }
     #sortBtns {
         display: none;
-        text-align: center;
-        flex-direction: column;
+        flex-direction: wrap;
     }  
     #buscador {
         display: none;
@@ -263,6 +300,20 @@ footer{
         width: 290px;
         height: 350px;
     } 
+    #sortBtns {
+        flex-direction: column;
+        align-items: center;
+        position:fixed;
+        background-color: #C5DEDD;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        bottom:100%;
+    }
+    .sortBtns{
+        bottom: 0;
+        transition: bottom 0.2s;
+    }
     #copyright{
         padding-left:10px;
     }
