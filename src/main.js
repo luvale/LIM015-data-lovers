@@ -16,10 +16,17 @@ function showFilmsInScreen (arrayData){
         divFilm.classList.add("cardClass"); //Pusimos class para poder editar todo junto el CSS de las cards.
         divFilm.setAttribute("id" , element.id);  // los id ya vienen en el 'ghibli.js' 
         const identificador = document.getElementById(element.id);
-        identificador.addEventListener("click", newScreen);
-        
+        identificador.addEventListener("click", newScreen)
+        /*() => {newScreen(); 
+          const prueba2 = document.querySelectorAll(".peopleCards");
+          console.log(prueba2);
+          prueba2.forEach(e => e.addEventListener("click" , modal))});
+          function modal(e){
+          console.log(e.currentTarget);
+        }*/
         function newScreen(){                // Muestra en pantalla la información de cada película. 
           showAllFilms.textContent = ''; 
+          window.scrollTo(0 ,0 );
           const title = document.createElement("section");           // Título de la película.
           title.classList.add("title");         
           const article = document.createElement("article");         // Artículo = contenedor de toda la página.
@@ -29,8 +36,9 @@ function showFilmsInScreen (arrayData){
           mainSection.classList.add("mainSection");
           
           const peopleSection = document.createElement("section");  // Section con los personajes.
-          const peopleLoop = document.createElement("section");
           peopleSection.classList.add("peopleSection"); 
+          const peopleLoop = document.createElement("section");
+          peopleLoop.classList.add("peopleLoop");
           const locationSection = document.createElement("section"); // Section con las locaciones.           
           const locationLoop =  document.createElement("section");
           locationSection.classList.add("locationSection");
@@ -51,9 +59,18 @@ function showFilmsInScreen (arrayData){
           
           const characters = element.people;         // Recorre cada personaje para mostrarlo en pantalla.
           for (let i = 0; i < characters.length; i++){  
-            peopleLoop.innerHTML += `<div class="peopleCards"> <p>${characters[i].name}</p> 
-            <img class="peopleImg" src = ${characters[i].img}> </div>` 
+            peopleLoop.innerHTML += `<div class="peopleCards" id="${characters[i].id}"> <p>${characters[i].name}</p> 
+            <img class="peopleImg" src = ${characters[i].img}> </div>`
+            // const charactersInfo =  characters[i].id;
+           // const prueba = document.getElementById(characters[i].id);
+            // peopleID.addEventListener("click" , modal)
+           //console.log(prueba);
+           //console.log(characters[i].id);
           }
+
+         // function modal(){
+           // console.log(":3");
+          //}  
 
           const locations = element.locations;        // Recorre cada locación para mostrarla en pantalla.
           if (locations.length === 0) {
@@ -80,7 +97,9 @@ function showFilmsInScreen (arrayData){
           peopleSection.append(peopleLoop);
           locationSection.append(locationLoop);
           vehicleSection.append(vehicleLoop);
-        }   
+                 
+        }  
+
     });
 }
 showFilmsInScreen(filmsGhibli);
@@ -143,15 +162,12 @@ elementFilterYears.addEventListener('change',() =>{
 })
 
 //BUSCADOR  
-const d = document;
+const buscador = document.getElementById("buscador");
 function searchFilms(input, selector){
-  d.addEventListener('keyup',(e) =>{
+  buscador.addEventListener('keyup',(e) =>{
     if(e.target.matches(input)){
-      if(e.key === "Escape"){
-        e.target.value="";
-      }
-        d.querySelectorAll(selector).forEach((element) =>
-        element.textContent.toLowerCase().includes(e.target.value)
+        document.querySelectorAll(selector).forEach((element) =>
+        element.textContent.toLowerCase().includes(e.target.value)  
         ?element.classList.remove("filter")
         :element.classList.add("filter")
         );
@@ -165,34 +181,42 @@ filterAZ.addEventListener('change',() =>{
     sortAZ(filmsGhibli, filterAZ.value);
     showAllFilms.innerHTML = '';
     showFilmsInScreen(filmsGhibli);
-  } if(filterAZ.value === 'Z-A'){
+  } else {
     sortZA(filmsGhibli, filterAZ.value);
     showAllFilms.innerHTML = '';
     showFilmsInScreen(filmsGhibli);
   }
 })
+
 const logo = document.getElementById('logo');
 logo.addEventListener("click" , home);
 
-const homeBtn = document.querySelector("#homeBtn");
+const homeBtn = document.getElementById("homeBtn");
 homeBtn.addEventListener("click" , home);
 function home(){
   showAllFilms.textContent = '';
   showFilmsInScreen(filmsGhibli);
-  selectOfDirectors
 }
 
-const menuBtn = document.querySelector("#menuBtn");
-menuBtn.addEventListener("click" , mostrarMenu);
-function mostrarMenu(){
+const menuToggle = document.getElementById("menuBtn");
+//const sortBtns = document.getElementById("sortBtns");
+menuToggle.addEventListener("click" , () => {
   document.getElementById("sortBtns").style.display = 'flex';
-  document.getElementById("buscador").style.display = 'none';
-}
+    document.querySelector(".buscador").style.display = 'none';
+})
 
 const searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click" , displaySearch);
 
 function displaySearch(){
-  document.getElementById("buscador").style.display = 'flex';
+  document.querySelector(".buscador").style.display = 'flex';
   document.getElementById("sortBtns").style.display = 'none';
 }
+/*
+const cerrar = document.getElementById("close");
+cerrar.addEventListener("click" , close);
+const modal = document.getElementById("modalContainer")
+function close() {
+  modal.style.visibility = "hidden";
+}
+*/
