@@ -4,6 +4,7 @@ export const getFilm = (data) => {
   const dataGhibli = data.films.map((arr) => arr);
   return dataGhibli;
 }
+
 //sort by ZA- ZA
 export const sortAZ = (data) =>{
   const sortLetters = data.sort((name1, name2) => {
@@ -27,12 +28,12 @@ export const searchYears = (data, fecha) => {
 
 // Hago un array de todos los productores
  export const mapDirectors = (data) => {
-  const arrayP = data.films.map(a => (a.director));
-  return arrayP;
+  const array = data.films.map(a => (a.director));
+  return array;
 }
 
 const arrayDirectors = mapDirectors(data);
-// console.log (arrayProducers)
+// console.log (mapDirectors(data))
 // Filtro el array de producers para que los nombres no se repitan
 export const directors = arrayDirectors.filter((value, index) =>{
   return arrayDirectors.indexOf(value) === index;
@@ -42,6 +43,14 @@ export const filterDirectors = (data, value) => {
   const filterDirectors = data.films.filter(x => x.director === value)
   return filterDirectors;  
 }
+
+/*
+const pruebaPersonajes = (data) => {
+  const personajes = data.films.map(e => e.people)
+  return personajes;
+}*/
+//console.log(pruebaPersonajes(data));
  
+// console.log(data.films.filter(elem => elem.id === "2baf70d1-42bb-4437-b551-e5fed5a87abe").map(e => e.people[0]))
  
  
