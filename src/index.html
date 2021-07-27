@@ -29,24 +29,32 @@
           </select>
           <select id="filter-years"> 
             <option value="all" disabled selected>By Years</option>           
-          </select>
-          <input id="buscador" type="text" class='card-filter' placeholder="Buscar">   
-        </div>       
+          </select>  
+        </div>
+        <div class="buscador">
+          <input id="buscador" type="text" class="card-filter" placeholder="Buscar"> 
+        </div>               
       </nav>
     </header>
     <main>
       <article id="showAllFilms"></article>
+      <div id="modalContainer">
+        <div id="modal">
+          <h3 id="close">X</h3>
+          <h2>hola</h2>
+        </div>
+      </div>
     </main>
     <footer>
         <div class="containerFooter">
         <p id="copyright"> Copyright &copy; Diana y Valeria - 2021</p>
         <div class="icons-social">
-          <a class="s-icons" href="https://twitter.com/ghibliusa?lang=es" target ="_blank"><i class="fab fa-twitter" id="twitter"></i></a>
-          <a class="s-icons" href="https://es.wikipedia.org/wiki/Studio_Ghibli" target ="_blank"><i class="fab fa-wikipedia-w" id="wikipedia"></i></a>
+          <a class="s-icons" href="https://twitter.com/ghibliusa?lang=es" target ="_blank"><i class="fab fa-twitter"></i></a>
+          <a class="s-icons" href="https://es.wikipedia.org/wiki/Studio_Ghibli" target ="_blank"><i class="fab fa-wikipedia-w"></i></a>
         </div>
       </div>
     </footer>
     <script src="https://kit.fontawesome.com/99e095b5b2.js" crossorigin="anonymous"></script>
-    <script src="main.js" type="module"></script>
+    <script defer src="main.js" type="module"></script>
   </body>
 </html>
