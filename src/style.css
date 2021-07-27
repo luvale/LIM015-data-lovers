@@ -45,8 +45,11 @@ header{
 #filter-years {
     width: 110px;
 }
-#buscador {
+.buscador {
     display: flex;
+    justify-content: center;
+}
+#buscador {
     background-color: #99C1DE;
     color: white;
     border-radius: 11px;
@@ -158,7 +161,6 @@ aside{
     border-radius: 11px;
     margin: 10px;
     padding: 5px;
-    cursor: pointer;
 }
 .locationSection , .vehicleSection{
     margin-top: 25px;
@@ -217,10 +219,8 @@ footer{
     justify-content: space-between;
 }
 .icons-social{
-    padding-right: 40px;
-    padding-top: 3px;
+    padding: 3px 40px;
 }
-
 .s-icons{   
     display: inline-block;
     border-radius: 50%;
@@ -251,8 +251,10 @@ footer{
         display: none;
         flex-direction: wrap;
     }  
-    #buscador {
+    .buscador {
         display: none;
+    }
+    #buscador {
         width: 390px;
         height: 36px;
         font-size: 18px;
@@ -278,18 +280,19 @@ footer{
         margin: 15px;
         font-size: 18px;
     }
-
+    aside{ 
+        width: 25%; 
+    } 
+    .producer , .director{
+        padding:13px;
+    } 
     #copyright{
         padding-left:30px;
     }
-    .icons-social a i{
+    .s-icons{
         font-size: 35px;
-        width: 35px;
-        height: 35px;
-    }
-    .icons-social{
-        padding-right: 30px;
-        padding-top: 10px;
+        width: 40px;
+        height: 40px;
     }
 }
 @media screen and (max-width: 480px){
@@ -300,27 +303,23 @@ footer{
         width: 290px;
         height: 350px;
     } 
-    #sortBtns {
+    .moviesInfo{
         flex-direction: column;
         align-items: center;
-        position:fixed;
-        background-color: #C5DEDD;
-        left: 0;
-        width: 100%;
-        padding: 20px 0;
-        bottom:100%;
     }
-    .sortBtns{
-        bottom: 0;
-        transition: bottom 0.2s;
+    aside{ 
+        width: 50%; 
+    } 
+    .mainSection{ 
+        width: 90%; 
     }
     #copyright{
         padding-left:10px;
     }
-    .icons-social a i{
+    .s-icons{
         font-size: 26px;
-        width: 26px;
-        height: 26px;
+        width: 35px;
+        height: 35px;
     }
     .icons-social{
         padding-right: 10px;
