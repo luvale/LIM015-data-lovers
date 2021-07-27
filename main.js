@@ -38,6 +38,7 @@ function showFilmsInScreen (arrayData){
           const peopleSection = document.createElement("section");  // Section con los personajes.
           peopleSection.classList.add("peopleSection"); 
           const peopleLoop = document.createElement("section");
+          peopleLoop.classList.add("peopleLoop");
           const locationSection = document.createElement("section"); // Section con las locaciones.           
           const locationLoop =  document.createElement("section");
           locationSection.classList.add("locationSection");
@@ -197,33 +198,25 @@ function home(){
   showFilmsInScreen(filmsGhibli);
 }
 
-const menuToggle = document.querySelector("#menuBtn");
-const sortBtns = document.querySelector("#sortBtns");
-menuToggle.addEventListener("click", () => { 
-  sortBtns.classList.toggle("sort_Btns");
-})
-
-/*
-const menuBtn = document.querySelector("#menuBtn");
-menuBtn.addEventListener("click" , mostrarMenu);
-function mostrarMenu(){
+const menuToggle = document.getElementById("menuBtn");
+//const sortBtns = document.getElementById("sortBtns");
+menuToggle.addEventListener("click" , () => {
   document.getElementById("sortBtns").style.display = 'flex';
-  document.getElementById("buscador").style.display = 'none';
-}
-*/
+    document.querySelector(".buscador").style.display = 'none';
+})
 
 const searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click" , displaySearch);
 
 function displaySearch(){
-  document.getElementById("buscador").style.display = 'flex';
+  document.querySelector(".buscador").style.display = 'flex';
   document.getElementById("sortBtns").style.display = 'none';
 }
-
+/*
 const cerrar = document.getElementById("close");
 cerrar.addEventListener("click" , close);
-const modal = document.getElementById("modalContainer");
+const modal = document.getElementById("modalContainer")
 function close() {
   modal.style.visibility = "hidden";
 }
-
+*/
